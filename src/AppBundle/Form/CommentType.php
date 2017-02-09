@@ -7,7 +7,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class PublicationType extends AbstractType
+class CommentType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -15,18 +15,15 @@ class PublicationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
-            ->add('author')
-            ->add('description')
-            ->add('content')
-            ->add('publishedAt');
+            ->add('pseudo')
+            ->add('message');
+        if($options['publication_field']){
 
-        if($options['validated_field']){
             $builder
-                ->add('validated');
+                ->add('publication');
         }
+
         $builder
-            ->add('science')
             ->add('save', SubmitType::class, [
                 'attr' => [
                     'class' => 'btn btn-sm btn-primary',
@@ -40,14 +37,12 @@ class PublicationType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver
-            ->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Publication',
-            'validated_field' => true,
+        $resolver->setDefaults(array(
+            'data_class' => 'AppBundle\Entity\Comment',
+            'publication_field' => true,
 
         ))
-            ->setAllowedTypes('validated_field', 'bool');
-
+            ->setAllowedTypes('publication_field', 'bool');
     }
 
     /**
@@ -55,7 +50,7 @@ class PublicationType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_publication';
+        return 'appbundle_comment';
     }
 
 

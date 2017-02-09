@@ -48,6 +48,11 @@ class Publication
     private $science;
 
     /**
+     * @var Comment
+     */
+    private $comment;
+
+    /**
      * Get the string representation.
      *
      * @return string
@@ -226,6 +231,23 @@ class Publication
     {
         $this->science = $science;
     }
+
+    /**
+     * @return Comment
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
+
+    /**
+     * @param Comment $comment
+     */
+    public function setComment($comment)
+    {
+        $this->comment = $comment;
+    }
+
 
 }
 

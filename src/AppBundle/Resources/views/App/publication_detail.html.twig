@@ -39,6 +39,28 @@
                     <div>
                         {{ publication.content }}
                     </div>
+                <div>
+                    <h2>Comment:</h2>
+
+                    {% for comment in comments %}
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+
+                            {{ comment.message }}<br>
+                        </div>
+                        <div class="panel-body">
+                            {{ comment.pseudo }}
+                        </div>
+                    </div>
+
+                    {% endfor %}
+                    <div class="panel panel-default">
+                    {{ form_start(form) }}
+                    {{ form_widget(form) }}
+                    {#{{ form.post.vars.id }}#}
+                    {{ form_end(form) }}
+                    </div>
+                </div>
 
             </div>
             <div id="sidebar" class="col-md-2">

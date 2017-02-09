@@ -31,4 +31,10 @@ AppBundle\Entity\Publication:
                 name: science
                 referencedColumnName: id
             onDelete: RESTRICT
+    oneToMany:
+        comment:
+            targetEntity: AppBundle\Entity\Comment
+            mappedBy: publication
+            cascade: [all]
+            onDelete: RESTRICT
     lifecycleCallbacks: {  }

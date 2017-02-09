@@ -28,6 +28,9 @@
                 <li>
                     <a href="{{ path('app_logout') }}">Logout</a>
                 </li>
+                    <li>
+                        <a href="{{ path('app_admin_dashboard') }}">Admin</a>
+                    </li>
                 {% else %} {#si user pas connecté#}
                 <li>
                     <a href="{{ path('app_login') }}">Login</a>

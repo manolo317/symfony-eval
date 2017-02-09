@@ -38,6 +38,10 @@ app_admin_publication:
     resource: "@AppBundle/Resources/config/routing/publication.yml"
     prefix:   /admin/publication
 
+app_comment:
+    resource: "@AppBundle/Resources/config/routing/comment.yml"
+    prefix:   /admin/comment
+
 app_login:
     path:     /login
     defaults: { _controller: AppBundle:Admin/Security:login }

@@ -1,0 +1,25 @@
+AppBundle\Entity\Comment:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\CommentRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        pseudo:
+            type: string
+            length: '64'
+        message:
+            type: text
+    manyToOne:
+        publication:
+            targetEntity: AppBundle\Entity\Publication
+            joinColum:
+                name: publication
+                referencedColumnName: id
+            inversedBy: comment
+            onDelete: RESTRICT
+    lifecycleCallbacks: {  }
