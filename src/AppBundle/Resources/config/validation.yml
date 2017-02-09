@@ -1,0 +1,12 @@
+AppBundle/Entity/Publication:
+    properties:
+        title:
+            - NotBlank: ~
+        description:
+            - NotBlank: ~
+        content:
+            - NotBlank: ~
+        author:
+            - NotBlank: ~
+        science:
+            - NotBlank: ~

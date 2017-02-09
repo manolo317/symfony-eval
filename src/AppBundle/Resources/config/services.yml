@@ -1,3 +1,6 @@
 #parameters:
 
-#services:
+services:
+    app.service.notifier:
+        class: AppBundle\Service\Notifier
+        arguments: ['@mailer']

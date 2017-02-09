@@ -5,8 +5,14 @@ security:
     # http://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
         in_memory:
-            memory: ~
+            memory:
+                users:
+                    sciAdmin:
+                        password: e=mc2
+                        roles: 'ROLE_ADMIN'
 
+    encoders:
+        Symfony\Component\Security\Core\User\User: plaintext
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
         dev:
@@ -14,11 +20,21 @@ security:
             security: false
 
         main:
+            pattern: ^/
             anonymous: ~
-            # activate different ways to authenticate
-
             # http_basic: ~
-            # http://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
 
-            # form_login: ~
+            # Active la prise en charge de notre formulaire de login
             # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+            form_login:
+                login_path: app_login
+                check_path: app_login
+
+            # Active le logout (ne fonctionne pas avec http_basic)
+            logout:
+                path:   /logout
+                target: app_login
+
+    access_control:
+        # require ROLE_ADMIN for /admin*
+        - { path: ^/admin, roles: ROLE_ADMIN }

@@ -1,0 +1,20 @@
+{% extends 'AppBundle::base.html.twig' %}
+{% block content %}
+    <div class="jumbotron">
+        <div class="container">
+            <p>
+                Utilisez ce formulaire pour nous soumettre vos publication scientifiques.<br>
+                Nos modérateurs procèderont à la validation de votre publication dans les plus brefs délais !
+            </p>
+        </div>
+    </div>
+
+    <div class="container">
+
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+
+    </div>
+
+{% endblock %}

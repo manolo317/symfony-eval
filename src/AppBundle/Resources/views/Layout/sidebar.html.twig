@@ -1,0 +1,15 @@
+<div class="table-responsive">
+    <h3>Sciences</h3>
+    <table class="table table-hover table-condensed">
+        <tr>
+            <td>Sciences</td>
+        </tr>
+        {% for science in sciences %}
+            <tr>
+                <td><a href="{{ path('app_science_detail', { 'scienceId': science.id }) }}">{{ science.title }}</a></td>
+            </tr>
+        {% else %}
+            <tr>Empty array</tr>
+        {% endfor %}
+    </table>
+</div>

@@ -6,6 +6,17 @@ app_home:
     path: /
     defaults: { _controller: AppBundle:App:home }
 
+app_sciences:
+    path: /sciences
+    defaults: { _controller: AppBundle:App:sciences }
+
+app_science_detail:
+    path: /sciences/{scienceId}
+    defaults:
+        _controller: AppBundle:App:scienceDetail
+    requirements:
+        scienceId: "[0-9]+"
+
 app_publication_detail:
     path: /sciences/{scienceId}/{publicationId}
     defaults:
@@ -14,10 +25,22 @@ app_publication_detail:
         scienceId: "[0-9]+"
         publicationId: "[0-9]+"
 
-app_science:
+app_publish:
+    path: /publier
+    defaults:
+        _controller: AppBundle:App:publish
+
+app_admin_science:
     resource: "@AppBundle/Resources/config/routing/science.yml"
     prefix:   /admin/science
 
-app_publication:
+app_admin_publication:
     resource: "@AppBundle/Resources/config/routing/publication.yml"
     prefix:   /admin/publication
+
+app_login:
+    path:     /login
+    defaults: { _controller: AppBundle:Admin/Security:login }
+
+app_logout:
+    path: /logout

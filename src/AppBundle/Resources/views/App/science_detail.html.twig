@@ -1,0 +1,45 @@
+{% extends 'AppBundle::base.html.twig' %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div id="main" class="col-md-10">
+
+                <!-- Science -->
+
+                <div class="science-thumb">
+                    <h1>{{ science.title }}</h1>
+                    <p>
+                        {{ science.description }}
+                    </p>
+                </div>
+
+                <hr>
+
+            {% for publication in publications %}
+
+                <div class="publication-thumb">
+                    <h2>{{ publication.title }}</h2>
+                    <p>
+                        Publié par <strong>{{ publication.author }}</strong>,
+                        le <em>{{ publication.publishedAt|date('Y-m-d H:i:s') }}</em>.
+                    </p>
+                    <p>
+                        {{ publication.description }}
+                    </p>
+                    <p>
+                        <!-- Lien vers le détail de la publication -->
+                        <a href="{{ path('app_publication_detail', { 'scienceId': publication.science.id, 'publicationId': publication.id }) }}"
+                           class="btn btn-sm btn-default">
+                            Lire la publication
+                        </a>
+                    </p>
+                </div>
+            {% endfor %}
+            </div>
+            <div id="sidebar" class="col-md-2">
+                {{ render(controller('AppBundle:App:side', {'max': 5})) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

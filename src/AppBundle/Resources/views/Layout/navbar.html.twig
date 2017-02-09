@@ -8,16 +8,31 @@
                 <span class="icon-bar"></span>
             </button>
             <!-- Lien vers la page d'accueil -->
-            <a class="navbar-brand" href="#">SciPub</a>
+            <a class="navbar-brand" href="{{ path('app_home') }}">SciPub</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li>
                     <!-- Lien vers la page sciences -->
-                    <a href="#">
+                    <a href="{{ path('app_sciences') }}">
                         Sciences
                     </a>
                 </li>
+                <li>
+                    <!-- Lien vers la page sciences -->
+                    <a href="{{ path('app_publish') }}">
+                        Publier
+                    </a>
+                </li>
+                {% if app.user %} {#si user connecté#}
+                <li>
+                    <a href="{{ path('app_logout') }}">Logout</a>
+                </li>
+                {% else %} {#si user pas connecté#}
+                <li>
+                    <a href="{{ path('app_login') }}">Login</a>
+                </li>
+                {% endif %}
             </ul>
         </div>
     </div>

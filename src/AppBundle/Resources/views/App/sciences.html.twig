@@ -1,0 +1,24 @@
+{% extends 'AppBundle::base.html.twig' %}
+{% block content %}
+    <div class="container">
+
+        <h1>Sciences</h1>
+
+        {% for science in sciences %}
+
+        <div class="science-thumb">
+            <h2>{{ science.title }}</h2>
+            <p>
+                {{ science.description }}
+            </p>
+            <p>
+                <!-- Lien vers la page détail science -->
+                <a href="{{ path('app_science_detail', { 'scienceId': science.id }) }}" class="btn btn-sm btn-default">
+                    Voir les publications
+                </a>
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

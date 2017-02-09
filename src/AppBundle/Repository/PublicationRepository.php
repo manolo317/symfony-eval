@@ -18,4 +18,13 @@ class PublicationRepository extends \Doctrine\ORM\EntityRepository
             ->setMaxResults(3)
             ->getResult();
     }
+
+    public function findPublicationsByScience($science)
+    {
+        return $this->createQueryBuilder('p')
+            ->where('p.science = :science')
+            ->setParameter('science', $science)
+            ->getQuery()
+            ->getResult();
+    }
 }

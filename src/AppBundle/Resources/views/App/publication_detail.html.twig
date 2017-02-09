@@ -1,46 +1,51 @@
 {% extends 'AppBundle::base.html.twig' %}
 {% block content %}
     <div class="container">
+        <div class="row">
+            <div id="main" class="col-md-10">
 
-        <!-- Science -->
+                    <!-- Science -->
 
-        <div class="science-thumb">
-            <h1>{{ publication.science.title }}</h1>
-            <p>
-                {{ publication.science.description }}
-            </p>
-            <p>
-                <!-- Lien vers la page détail science -->
-                <a href="#" class="btn btn-sm btn-default">
-                    Autres publications
-                </a>
-            </p>
+                    <div class="science-thumb">
+                        <h1>{{ publication.science.title }}</h1>
+                        <p>
+                            {{ publication.science.description }}
+                        </p>
+                        <p>
+                            <!-- Lien vers la page détail science -->
+                            <a href="{{ path('app_science_detail', { 'scienceId': publication.science.id }) }}" class="btn btn-sm btn-default">
+                                Autres publications
+                            </a>
+                        </p>
+                    </div>
+
+                    <hr>
+
+                    <!-- Publication -->
+
+                    <div class="publication-thumb">
+                        <h2>{{ publication.title }}</h2>
+                        <p>
+                            Publié par <strong>{{ publication.author }}</strong>,
+                            le <em>{{ publication.publishedAt|date('Y-m-d H:i:s') }}</em>.
+                        </p>
+                        <p>
+                            {{ publication.description }}
+                        </p>
+                    </div>
+
+                    <hr>
+
+                    <div>
+                        {{ publication.content }}
+                    </div>
+
+            </div>
+            <div id="sidebar" class="col-md-2">
+                {{ render(controller('AppBundle:App:side', {'max': 5})) }}
+            </div>
         </div>
-
-        <hr>
     </div>
 
-    <div class="container">
-
-        <!-- Publication -->
-
-        <div class="publication-thumb">
-            <h2>{{ publication.title }}</h2>
-            <p>
-                Publié par <strong>{{ publication.author }}</strong>,
-                le <em>{{ publication.publishedAt|date('Y-m-d H:i:s') }}</em>.
-            </p>
-            <p>
-                {{ publication.description }}
-            </p>
-        </div>
-
-        <hr>
-
-        <div>
-            {{ publication.content }}
-        </div>
-
-    </div>
 
 {% endblock %}

@@ -10,4 +10,11 @@ namespace AppBundle\Repository;
  */
 class ScienceRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findAllSciencesByAlpha()
+    {
+        return $this->createQueryBuilder('s')
+            ->orderBy('s.title', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
 }
