@@ -19,6 +19,20 @@ class AppController extends Controller
      */
     public function homeAction()
     {
-        return $this->render('AppBundle:App:home.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('AppBundle:Publication');
+        $publications = $repository->findThreeLastPublications();
+
+        return $this->render('AppBundle:App:home.html.twig', ['publications' => $publications]);
+    }
+
+    public function publicationDetailAction($publicationId, $scienceId)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $publication = $em->getRepository('AppBundle:Publication')
+            ->find($publicationId);
+
+        return $this->render('AppBundle:App:publication_detail.html.twig', ['publication' => $publication,
+                                                                            'scienceId' => $scienceId]);
     }
 }

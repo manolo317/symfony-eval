@@ -1,0 +1,24 @@
+publication_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Publication:index" }
+    methods:  GET
+
+publication_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Publication:show" }
+    methods:  GET
+
+publication_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Publication:new" }
+    methods:  [GET, POST]
+
+publication_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Publication:edit" }
+    methods:  [GET, POST]
+
+publication_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Publication:delete" }
+    methods:  DELETE

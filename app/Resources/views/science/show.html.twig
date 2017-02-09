@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Science</h1>
+    <hr>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ science.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ science.title }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ science.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <ul class="list-inline">
+        <li>
+            <a href="{{ path('science_index') }}" class="btn btn-sm btn-default">
+                Back to the list
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('science_edit', { 'id': science.id }) }}"
+                class="btn btn-sm btn-warning">
+                Edit
+            </a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete" class="btn btn-sm btn-danger">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

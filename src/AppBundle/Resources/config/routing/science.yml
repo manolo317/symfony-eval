@@ -1,0 +1,24 @@
+science_index:
+    path:     /
+    defaults: { _controller: "AppBundle:Science:index" }
+    methods:  GET
+
+science_show:
+    path:     /{id}/show
+    defaults: { _controller: "AppBundle:Science:show" }
+    methods:  GET
+
+science_new:
+    path:     /new
+    defaults: { _controller: "AppBundle:Science:new" }
+    methods:  [GET, POST]
+
+science_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AppBundle:Science:edit" }
+    methods:  [GET, POST]
+
+science_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AppBundle:Science:delete" }
+    methods:  DELETE

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Publication creation</h1>
+    <hr>
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+        {{ form_widget(form) }}
+            {{ form_end(form) }}
+    <hr>
+    <ul class="list-inline">
+        <li>
+            <a href="{{ path('publication_index') }}" class="btn btn-sm btn-default">
+                Back to the list
+            </a>
+        </li>
+    </ul>
+{% endblock %}

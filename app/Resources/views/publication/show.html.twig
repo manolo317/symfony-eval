@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Publication</h1>
+    <hr>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ publication.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ publication.title }}</td>
+            </tr>
+            <tr>
+                <th>Author</th>
+                <td>{{ publication.author }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ publication.description }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ publication.content }}</td>
+            </tr>
+            <tr>
+                <th>Publishedat</th>
+                <td>{{ publication.publishedAt|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Validated</th>
+                <td>{% if publication.validated %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <ul class="list-inline">
+        <li>
+            <a href="{{ path('publication_index') }}" class="btn btn-sm btn-default">
+                Back to the list
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('publication_edit', { 'id': publication.id }) }}"
+                class="btn btn-sm btn-warning">
+                Edit
+            </a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete" class="btn btn-sm btn-danger">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

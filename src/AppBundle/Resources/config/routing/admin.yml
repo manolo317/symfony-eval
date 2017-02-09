@@ -2,3 +2,5 @@ app_admin_dashboard:
     path: /
     defaults:
         _controller: AppBundle:Admin/Dashboard:dashboard
+
+

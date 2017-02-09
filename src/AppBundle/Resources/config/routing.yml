@@ -5,3 +5,19 @@ app_admin:
 app_home:
     path: /
     defaults: { _controller: AppBundle:App:home }
+
+app_publication_detail:
+    path: /sciences/{scienceId}/{publicationId}
+    defaults:
+        _controller: AppBundle:App:publicationDetail
+    requirements:
+        scienceId: "[0-9]+"
+        publicationId: "[0-9]+"
+
+app_science:
+    resource: "@AppBundle/Resources/config/routing/science.yml"
+    prefix:   /admin/science
+
+app_publication:
+    resource: "@AppBundle/Resources/config/routing/publication.yml"
+    prefix:   /admin/publication

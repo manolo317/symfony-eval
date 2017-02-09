@@ -1,0 +1,18 @@
+AppBundle\Entity\Science:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\ScienceRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: '64'
+            unique: true
+        description:
+            type: text
+    lifecycleCallbacks: {  }
